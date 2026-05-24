@@ -1,6 +1,10 @@
+<!-- Link to issue !-->
+
 Closes #
 
 ## Describe your changes
+
+<!-- Short description of what you have changed -->
 
 ## Checklist
 
