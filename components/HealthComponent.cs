@@ -11,12 +11,12 @@ public partial class HealthComponent : Node
         CurrentHealth = MaxHealth;
     }
 
-    public void TakeDamage(int amount)
+    public void Decrease(int amount)
     {
         CurrentHealth -= amount;
     }
 
-    public void Heal(int amount)
+    public void Increase(int amount)
     {
         CurrentHealth += amount;
     }
