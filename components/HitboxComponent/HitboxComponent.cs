@@ -4,7 +4,7 @@ using System;
 public partial class HitboxComponent : Area3D
 {
     [Signal]
-    public delegate void HitEventHandler(Area3D target);
+    public delegate void HitLandedEventHandler(Area3D target);
     
     [Export]
     public float Damage { get; set; }
@@ -49,6 +49,6 @@ public partial class HitboxComponent : Area3D
     public void ReportHit(Area3D target)
     {
         Log.Debug($"Hit: {target.Name}");
-        EmitSignal(SignalName.Hit, target);
+        EmitSignal(SignalName.HitLanded, target);
     }
 }
