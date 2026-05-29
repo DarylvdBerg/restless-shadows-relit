@@ -40,7 +40,6 @@ public partial class HitboxComponent : Area3D
 
     public void Disable()
     {
-        
         Log.Debug("Disabling hitbox.");
         SetDeferred(Area3D.PropertyName.Monitorable, false);
     }
