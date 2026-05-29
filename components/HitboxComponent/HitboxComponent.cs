@@ -48,7 +48,7 @@ public partial class HitboxComponent : Area3D
 
     public void ReportHit(Area3D target)
     {
-        Log.Debug($"Hit: {target.Name}");
+        Log.Debug($"Hit: {target.GetParent().Name}");
         EmitSignal(SignalName.HitLanded, target);
     }
 }

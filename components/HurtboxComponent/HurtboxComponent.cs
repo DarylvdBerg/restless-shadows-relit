@@ -47,7 +47,7 @@ public partial class HurtboxComponent : Area3D
             return;
         }
 
-        Log.Debug($"Entity got hit: {GetParent().Name} by {hitbox.GetParent().Name}");
+        Log.Debug($"Entity: {GetParent().Name} got hit by: {hitbox.GetParent().Name}");
         Health.Decrease(hitbox.Damage);
         hitbox.ReportHit(this); // Emit the signal that a hit has landed.
         EmitSignal(SignalName.Hit, hitbox); // Emit the signal that entity got hit.
