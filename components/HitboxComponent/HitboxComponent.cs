@@ -7,7 +7,7 @@ public partial class HitboxComponent : Area3D
     public delegate void HitLandedEventHandler(Area3D target);
     
     [Export]
-    public float Damage { get; set; }
+    public int Damage { get; set; }
 
     [Export]
     public bool Active { get; set; }
@@ -29,7 +29,7 @@ public partial class HitboxComponent : Area3D
         Monitoring = false;
         Monitorable = Active;
 
-        _collisionShape?.Shape = Shape ?? throw new ArgumentNullException("Collision Shape needs to be set.");
+        _collisionShape.Shape = Shape ?? throw new ArgumentNullException("Collision Shape needs to be set.");
     }
 
     public void Enable()
