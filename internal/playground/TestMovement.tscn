@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://pj3goyr4aqbr"]
+
+[ext_resource type="PackedScene" uid="uid://bbt5rfc40u6tw" path="res://components/HurtboxComponent/HurtboxComponent.tscn" id="1_004fr"]
+[ext_resource type="PackedScene" uid="uid://bacl8b0hq5etf" path="res://components/VelocityComponent/VelocityComponent.tscn" id="2_7dbmv"]
+[ext_resource type="PackedScene" uid="uid://nsmdmdum048m" path="res://entities/player/MovementHandler.tscn" id="3_liai0"]
+[ext_resource type="PackedScene" uid="uid://csq5mhkd4800r" path="res://components/HealthComponent/HealthComponent.tscn" id="4_8oylx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ll66w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5x0c"]
+albedo_color = Color(1, 0.2627451, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t8yco"]
+material = SubResource("StandardMaterial3D_r5x0c")
+
+[node name="TestMovement" type="Node" unique_id=1491548619]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=633071436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.076476574, 0, 3.1806223)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=929622859]
+
+[node name="HurtboxComponent" parent="CharacterBody3D" unique_id=366223994 node_paths=PackedStringArray("Health") instance=ExtResource("1_004fr")]
+Health = NodePath("../HealthComponent")
+Shape = SubResource("CapsuleShape3D_ll66w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=2025044800]
+mesh = SubResource("CapsuleMesh_t8yco")
+
+[node name="VelocityComponent" parent="CharacterBody3D" unique_id=1576759239 node_paths=PackedStringArray("Body") instance=ExtResource("2_7dbmv")]
+Body = NodePath("..")
+Speed = 5.0
+
+[node name="MovementHandler" parent="CharacterBody3D" unique_id=1555568658 node_paths=PackedStringArray("VelocityComponent") instance=ExtResource("3_liai0")]
+VelocityComponent = NodePath("../VelocityComponent")
+IsJoystickControls = true
+IsThirdPerson = false
+
+[node name="HealthComponent" parent="CharacterBody3D" unique_id=562396950 instance=ExtResource("4_8oylx")]
