@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://h8yir2n6603s"]
+
+[ext_resource type="Script" uid="uid://cmdfdqnrf2gev" path="res://entities/player/camera/PlayerRotationHandler.cs" id="1_61txt"]
+
+[node name="CameraLookHandler" type="Node" unique_id=884807233]
+script = ExtResource("1_61txt")
