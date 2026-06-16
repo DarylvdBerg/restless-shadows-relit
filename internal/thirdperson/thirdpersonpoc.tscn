@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://buqhshd6kcnsd"]
+
+[sub_resource type="Environment" id="Environment_t1k3d"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_6qe86"]
+
+[sub_resource type="Compositor" id="Compositor_gdkcd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wfrqb"]
+
+[node name="Thirdpersonpoc" type="Node3D" unique_id=1586510759]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1269116988]
+environment = SubResource("Environment_t1k3d")
+camera_attributes = SubResource("CameraAttributesPractical_6qe86")
+compositor = SubResource("Compositor_gdkcd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1942422997]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2012792434]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("PlaneMesh_wfrqb")
