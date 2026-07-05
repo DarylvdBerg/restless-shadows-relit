@@ -14,23 +14,14 @@ public partial class HurtboxComponent : Area3D
     [Export]
     public required HealthComponent Health { get; set; }
 
-    /// <summary>
-    /// Just like the hitbox component, the shape will differ per entity.
-    /// </summary>
     [Export]
-    public required Shape3D Shape { get; set; }
-
-    private CollisionShape3D _collisionShape;
+    public required CollisionShape3D CollisionShape { get; set; }
 
     public override void _Ready()
     {
-        _collisionShape = GetNode<CollisionShape3D>("CollisionShape3D");
-        
         // Reverse of hitbox component, it can detect what comes in 'self' not the otherway around.
         Monitoring = true;
         Monitorable = false;
-
-        _collisionShape.Shape = Shape;
 
         AreaEntered += OnHurtboxEntered;
     }
