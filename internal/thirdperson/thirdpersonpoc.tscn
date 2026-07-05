@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://buqhshd6kcnsd"]
 
+[ext_resource type="PackedScene" uid="uid://bqqj5gfbwwvet" path="res://internal/thirdperson/player.tscn" id="1_6qe86"]
+[ext_resource type="Script" uid="uid://0pjwdvmjk3j3" path="res://internal/thirdperson/Thirdpersonpoc.cs" id="1_wfrqb"]
+[ext_resource type="PackedScene" uid="uid://1uscgoqsarig" path="res://internal/thirdperson/enemy.tscn" id="2_gdkcd"]
+
 [sub_resource type="Environment" id="Environment_t1k3d"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_6qe86"]
@@ -9,6 +13,7 @@
 [sub_resource type="PlaneMesh" id="PlaneMesh_wfrqb"]
 
 [node name="Thirdpersonpoc" type="Node3D" unique_id=1586510759]
+script = ExtResource("1_wfrqb")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1269116988]
 environment = SubResource("Environment_t1k3d")
@@ -20,3 +25,8 @@ compositor = SubResource("Compositor_gdkcd")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2012792434]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 mesh = SubResource("PlaneMesh_wfrqb")
+
+[node name="Enemy" parent="." unique_id=998026258 instance=ExtResource("2_gdkcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.717167)
+
+[node name="Player" parent="." unique_id=1827936584 instance=ExtResource("1_6qe86")]
