@@ -1,0 +1,18 @@
+[gd_resource type="Resource" format=3 uid="uid://blg0tx8ktq0h0"]
+
+[ext_resource type="PackedScene" uid="uid://qh8sfld4f2yx" path="res://resources/bullet.tscn" id="1_bxlvl"]
+[ext_resource type="PackedScene" uid="uid://dvfc7ulxvxmfg" path="res://internal/thirdperson/Nerfgun.tscn" id="1_d2dcp"]
+[ext_resource type="Script" uid="uid://b08p4278lkp54" path="res://resources/weapons/Weapon.cs" id="1_qob28"]
+
+[resource]
+script = ExtResource("1_qob28")
+Name = "Nerf Gun"
+Description = "A basic weapon to protect"
+WeaponModel = ExtResource("1_d2dcp")
+ProjectileModel = ExtResource("1_bxlvl")
+Damage = 1.0
+MaxAmmo = 10
+Ammo = 10
+ReloadTime = 3.0
+FireRate = 3.0
+WeaponPosition = Vector3(1, 1, 1)
