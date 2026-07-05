@@ -36,4 +36,10 @@ public partial class VelocityComponent : Node
         Body.Velocity = direction * Speed;
         Body.MoveAndSlide();
     }
+
+    public void Stop()
+    {
+        Body.Velocity = Vector3.Zero;
+        Body.MoveAndSlide();
+    }
 }
