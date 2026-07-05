@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cumh2aobnfxt6"]
+
+[ext_resource type="Script" uid="uid://cachdrsvho5bf" path="res://entities/player/weapon/WeaponHandler.cs" id="1_52ket"]
+[ext_resource type="PackedScene" uid="uid://bacl8b0hq5etf" path="res://components/VelocityComponent/VelocityComponent.tscn" id="2_5wyjl"]
+
+[node name="WeaponHandler" type="Node" unique_id=1647888515]
+script = ExtResource("1_52ket")
+
+[node name="ReloadTimer" type="Timer" parent="." unique_id=1470238988]
+
+[node name="VelocityComponent" parent="." unique_id=1576759239 instance=ExtResource("2_5wyjl")]
+Speed = 12.0
+
+[node name="FireRateTimer" type="Timer" parent="." unique_id=852409962]
