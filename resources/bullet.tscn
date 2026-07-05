@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://qh8sfld4f2yx"]
+
+[ext_resource type="PackedScene" uid="uid://cgqts3lnh50fd" path="res://internal/thirdperson/assets/models/weapon/Bullet.glb" id="1_uk4ex"]
+
+[node name="Bullet2" unique_id=1753546680 instance=ExtResource("1_uk4ex")]
