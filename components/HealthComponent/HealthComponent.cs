@@ -3,6 +3,7 @@ using System;
 
 public partial class HealthComponent : Node
 {
+    [Export]
     public int MaxHealth;
     public int CurrentHealth;
 
