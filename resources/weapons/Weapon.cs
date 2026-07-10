@@ -30,8 +30,11 @@ public partial class Weapon : Resource
     [Export]
     public float Spread { get; set; }
 
+    // Non-zero default so a weapon with no explicit ProjectileSpeed still fires
+    // moving projectiles. Godot strips exported values equal to the script
+    // default from .tres files, so relying on a 0 default silently breaks motion.
     [Export]
-    public float ProjectileSpeed { get; set; }
+    public float ProjectileSpeed { get; set; } = 20.0f;
 
     [Export]
     public float FireRate { get; set; }
