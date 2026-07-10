@@ -66,7 +66,9 @@ public partial class WeaponHandler : Node
 
         var projectile = ProjectileScene.Instantiate<Projectile>();
 
-        Vector3 direction = ApplySpread(-Muzzle.GlobalTransform.Basis.Z, weapon.Spread);
+        // characterMedium (the Muzzle's parent) faces the aim point with +Z
+        // (PlayerRotationHandler sets yaw = Atan2(x, z)), so +Z is forward.
+        Vector3 direction = ApplySpread(Muzzle.GlobalTransform.Basis.Z, weapon.Spread);
         projectile.Initialize(direction.Normalized(), weapon.Damage, weapon.ProjectileSpeed);
 
         if(weapon.ProjectileModel is not null)
