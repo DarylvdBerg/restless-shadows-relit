@@ -15,4 +15,5 @@ MaxAmmo = 10
 Ammo = 10
 ReloadTime = 3.0
 FireRate = 3.0
+ProjectileSpeed = 20.0
 WeaponPosition = Vector3(1, 1, 1)

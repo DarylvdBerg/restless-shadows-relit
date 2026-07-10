@@ -31,6 +31,9 @@ public partial class Weapon : Resource
     public float Spread { get; set; }
 
     [Export]
+    public float ProjectileSpeed { get; set; }
+
+    [Export]
     public float FireRate { get; set; }
 
     [Export]
