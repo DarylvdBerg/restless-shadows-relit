@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cs3ldetoudwgp"]
+
+[ext_resource type="Script" path="res://entities/projectile/Projectile.cs" id="1_proj"]
+[ext_resource type="PackedScene" uid="uid://bk40bhq2ek0uk" path="res://components/HitboxComponent/HitboxComponent.tscn" id="2_hbox"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_proj"]
+radius = 0.2
+
+[node name="Projectile" type="Area3D"]
+script = ExtResource("1_proj")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_hbox")]
+collision_layer = 2
+collision_mask = 0
+Active = true
+Shape = SubResource("SphereShape3D_proj")
+
+[node name="LifetimeTimer" type="Timer" parent="."]
+one_shot = true
