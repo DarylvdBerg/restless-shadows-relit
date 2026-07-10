@@ -191,6 +191,10 @@ radius = 6.0
 radius = 0.6
 height = 4.0
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hurt"]
+radius = 0.8
+height = 2.0
+
 [node name="Enemy" type="CharacterBody3D" unique_id=998026258 node_paths=PackedStringArray("animationPlayer")]
 script = ExtResource("1_k313q")
 animationPlayer = NodePath("characterMedium/AnimationPlayer")
@@ -200,8 +204,12 @@ MaxHealth = 10
 
 [node name="HurtboxComponent" parent="." unique_id=366223994 node_paths=PackedStringArray("Health", "CollisionShape") instance=ExtResource("2_p138l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.875783, 0)
+collision_mask = 2
 Health = NodePath("../HealthComponent")
 CollisionShape = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent" unique_id=1900000002]
+shape = SubResource("CapsuleShape3D_hurt")
 
 [node name="VelocityComponent" parent="." unique_id=1576759239 node_paths=PackedStringArray("Body") instance=ExtResource("3_k313q")]
 Body = NodePath("..")

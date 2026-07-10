@@ -212,6 +212,9 @@ CollisionShape = NodePath("../CollisionShape3D")
 
 [node name="characterMedium" type="Node3D" parent="." unique_id=2079548157]
 
+[node name="Muzzle" type="Marker3D" parent="characterMedium" unique_id=1900000001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.6)
+
 [node name="Root" type="Node3D" parent="characterMedium" unique_id=947294688]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
 
@@ -650,6 +653,7 @@ VelocityComponent = NodePath("../VelocityComponent")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.747129, 0)
 shape = SubResource("CapsuleShape3D_a2xp1")
 
-[node name="WeaponHandler" parent="." unique_id=1647888515 node_paths=PackedStringArray("WeaponModelParent") instance=ExtResource("12_3sqcr")]
+[node name="WeaponHandler" parent="." unique_id=1647888515 node_paths=PackedStringArray("WeaponModelParent", "Muzzle") instance=ExtResource("12_3sqcr")]
 weapon = ExtResource("13_wmfmh")
 WeaponModelParent = NodePath("../characterMedium/Root/Skeleton3D/BoneAttachment3D")
+Muzzle = NodePath("../characterMedium/Muzzle")

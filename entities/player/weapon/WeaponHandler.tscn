@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cachdrsvho5bf" path="res://entities/player/weapon/WeaponHandler.cs" id="1_52ket"]
 [ext_resource type="PackedScene" uid="uid://bacl8b0hq5etf" path="res://components/VelocityComponent/VelocityComponent.tscn" id="2_5wyjl"]
+[ext_resource type="PackedScene" uid="uid://cs3ldetoudwgp" path="res://entities/projectile/Projectile.tscn" id="3_proj"]
 
 [node name="WeaponHandler" type="Node" unique_id=1647888515]
 script = ExtResource("1_52ket")
+ProjectileScene = ExtResource("3_proj")
 
 [node name="ReloadTimer" type="Timer" parent="." unique_id=1470238988]
 
