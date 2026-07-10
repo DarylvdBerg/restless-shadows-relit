@@ -9,6 +9,12 @@ public partial class WeaponHandler : Node
     [Export]
     public required Node3D WeaponModelParent { get; set; }
 
+    [Export]
+    public required Node3D Muzzle { get; set; }
+
+    [Export]
+    public PackedScene ProjectileScene { get; set; }
+
     private VelocityComponent _velocityComponent { get; set; }
 
     private Timer _reloadTimer;
@@ -45,9 +51,43 @@ public partial class WeaponHandler : Node
             _fireRateTimer.Start();
             weapon.Ammo--;
             Log.Debug($"Firing weapon: {weapon.Name}");
-            
-            // Spawn bullet or projectile here
+
+            SpawnProjectile();
         }
+    }
+
+    private void SpawnProjectile()
+    {
+        if(ProjectileScene is null)
+        {
+            Log.Debug("ProjectileScene not set; cannot fire projectile.");
+            return;
+        }
+
+        var projectile = ProjectileScene.Instantiate<Projectile>();
+
+        Vector3 direction = ApplySpread(-Muzzle.GlobalTransform.Basis.Z, weapon.Spread);
+        projectile.Initialize(direction.Normalized(), weapon.Damage, weapon.ProjectileSpeed);
+
+        if(weapon.ProjectileModel is not null)
+        {
+            var model = weapon.ProjectileModel.Instantiate<Node3D>();
+            projectile.AddChild(model);
+        }
+
+        GetTree().CurrentScene.AddChild(projectile);
+        projectile.GlobalPosition = Muzzle.GlobalPosition;
+    }
+
+    private static Vector3 ApplySpread(Vector3 direction, float spread)
+    {
+        if(spread <= 0f)
+        {
+            return direction;
+        }
+
+        float angle = (GD.Randf() * 2f - 1f) * spread; // radians, in [-spread, +spread]
+        return direction.Rotated(Vector3.Up, angle);
     }
 
     public void Reload()
